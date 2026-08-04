@@ -1,3 +1,9 @@
+## v0.5.1 (2026-08-04)
+
+### Fix
+
+- roi displacement calculation when using labels
+
 ## v0.5.0 (2026-07-17)
 
 ### Feat
