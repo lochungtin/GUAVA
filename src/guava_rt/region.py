@@ -45,9 +45,9 @@ class Region:
         ref = self.anchor if useAnchor else self.target_mask.center_of_mass
         return mask.center_of_mass - ref
 
-    def getDisplacementVectors(self, useAnchor: bool = False):
+    def getDisplacementVectors(self, useAnchor: bool = False, useLabels: bool = True):
         out = [self._getDisplacementVector(m, useAnchor) for m in self.masks]
-        if self.useLabels:
+        if self.useLabels and useLabels:
             return dict(zip(self.labels, out))
         return out
 

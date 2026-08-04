@@ -64,8 +64,12 @@ class Metrics:
 
     # ------------------------------------------------------------------
     def getROIDisplacementDiff(self):
-        dVecA = torch.stack(self.A.getDisplacementVectors(useAnchor=True))
-        dVecB = torch.stack(self.B.getDisplacementVectors(useAnchor=True))
+        dVecA = torch.stack(
+            self.A.getDisplacementVectors(useAnchor=True, useLabels=False)
+        )
+        dVecB = torch.stack(
+            self.B.getDisplacementVectors(useAnchor=True, useLabels=False)
+        )
         out = dVecA - dVecB
         if self.useLabels:
             return dict(zip(self.labels, out))
